@@ -13,7 +13,7 @@ sudo pacman --noconfirm -Sy \
 	shadow \
 	cmake gcc git linux-headers glibc make \
 	python-pip python \
-	gradle jdk8-openjdk \
+	gradle \
 	yarn nodejs
 
 yarn global add @angular/cli
