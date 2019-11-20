@@ -6,8 +6,13 @@ sudo cp -r /tmp/custom-config/keyrings ~/.local/share/
 sudo cp /tmp/custom-config/.gitconfig ~/.gitconfig
 sudo cp /tmp/custom-config/.xinitrc ~/.xinitrc
 
+echo 'AllowAgentForwarding yes' | sudo tee -a /etc/ssh/sshd_config
+echo 'X11Forwarding yes' | sudo tee -a /etc/ssh/sshd_config
+echo 'X11UseLocalhost yes' | sudo tee -a /etc/ssh/sshd_config
+sudo systemctl restart sshd
+
 sudo pacman --noconfirm -Sy \
-	bash bash-completion coreutils file grep openssl openssh nano sudo tar xz procps wget pkgconf base-devel icu \
+	bash bash-completion coreutils file grep openssl openssh nano sudo tar xz procps wget pkgconf base-devel icu xorg \
 	libsecret gnome-keyring \
 	noto-fonts \
 	shadow \
