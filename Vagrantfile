@@ -4,11 +4,8 @@ $run_script = <<SCRIPT
 SCRIPT
 
 $install_script = <<SCRIPT
-  export GIT_USER=#{ENV['VAGRANT_GIT_USER']}
-  export GIT_TOKEN=#{ENV['VAGRANT_GIT_TOKEN']}
-  export GIT_IDEA_SETTINGS=#{ENV['VAGRANT_GIT_IDEA_SETTINGS']}
   chmod -R ugo+rwx /tmp/custom-config
-  /tmp/custom-config/install.sh
+  /tmp/custom-config/install.sh #{ENV['VAGRANT_GIT_IDEA_SETTINGS_REPO']}
 SCRIPT
 
 Vagrant.configure(2) do |config|

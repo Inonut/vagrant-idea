@@ -36,9 +36,9 @@ rm lssecret-master.tar.gz
 sudo make -C lssecret-master install
 
 
-printf "$GIT_USER@$GIT_TOKEN" | secret-tool store --label="IntelliJ Platform Settings Repository  github.com" account $GIT_USER service 'IntelliJ Platform Settings Repository  github.com' xdg:schema com.intellij.credentialStore.Credential
-printf "89c7c84b-a4ce-4904-8ad8-5d404472c218@$GIT_TOKEN" | secret-tool store --label="IntelliJ Platform GitHub — 89c7c84b-a4ce-4904-8ad8-5d404472c218" account 89c7c84b-a4ce-4904-8ad8-5d404472c218 service 'IntelliJ Platform GitHub — 89c7c84b-a4ce-4904-8ad8-5d404472c218' xdg:schema com.intellij.credentialStore.Credential
+#printf "$GIT_USER@$GIT_TOKEN" | secret-tool store --label="IntelliJ Platform Settings Repository  github.com" account $GIT_USER service 'IntelliJ Platform Settings Repository  github.com' xdg:schema com.intellij.credentialStore.Credential
+#printf "89c7c84b-a4ce-4904-8ad8-5d404472c218@$GIT_TOKEN" | secret-tool store --label="IntelliJ Platform GitHub — 89c7c84b-a4ce-4904-8ad8-5d404472c218" account 89c7c84b-a4ce-4904-8ad8-5d404472c218 service 'IntelliJ Platform GitHub — 89c7c84b-a4ce-4904-8ad8-5d404472c218' xdg:schema com.intellij.credentialStore.Credential
 
-git clone https://$GIT_TOKEN@github.com/$GIT_USER/$GIT_IDEA_SETTINGS.git
-sudo mv ~/$GIT_IDEA_SETTINGS/ ~/.IntelliJIdea2019.2
+git clone $1 GIT_IDEA_SETTINGS
+sudo mv ~/GIT_IDEA_SETTINGS/ ~/.IntelliJIdea2019.2
 sudo chmod -R ugo+rwx .IntelliJIdea2019.2
