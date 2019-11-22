@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
    vb.cpus = 2
   end
 
-  config.vm.synced_folder "../", "/home/vagrant/IdeaProjects", type: "rsync"
+  config.vm.synced_folder "../", "/home/vagrant/IdeaProjects"
 
   config.vm.provision "file", source: "config", destination: "/tmp/custom-config"
   config.vm.provision "shell", inline: $install_script, privileged: false
@@ -28,4 +28,6 @@ Vagrant.configure(2) do |config|
 
 end
 
+#linux: sudo vagrant ssh -c './idea.sh'
+#windows: vagrant up
 #.\Xming.exe  -clipboard -multiwindow -ac

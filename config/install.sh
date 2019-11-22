@@ -1,7 +1,6 @@
 sudo cp /tmp/custom-config/mirrorlist /etc/pacman.d/mirrorlist
 sudo cp /tmp/custom-config/.bashrc ~/.bashrc
 sudo cp /tmp/custom-config/idea.sh ~/idea.sh
-mkdir -p ~/.local/share/keyrings
 sudo cp -r /tmp/custom-config/keyrings ~/.local/share/
 sudo cp /tmp/custom-config/.gitconfig ~/.gitconfig
 sudo cp /tmp/custom-config/.xinitrc ~/.xinitrc
