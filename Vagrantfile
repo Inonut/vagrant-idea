@@ -31,3 +31,4 @@ end
 #linux: sudo vagrant ssh -c './idea.sh'
 #windows: vagrant up
 #.\Xming.exe  -clipboard -multiwindow -ac
+
