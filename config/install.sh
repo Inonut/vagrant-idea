@@ -23,10 +23,11 @@ sudo pacman --noconfirm -Sy \
 yarn global add @angular/cli
 $(yarn global bin)/ng config -g cli.packageManager yarn
 
-IDEA_VERSION=2019.2.4-no-jbr
-wget https://download.jetbrains.com/idea/ideaIU-$IDEA_VERSION.tar.gz
-tar -xf ideaIU-$IDEA_VERSION.tar.gz
-rm ideaIU-$IDEA_VERSION.tar.gz
+IDEA_VERSION=2019.3
+DOWNLOAD_IDEA_VERSION=$IDEA_VERSION-no-jbr
+wget https://download.jetbrains.com/idea/ideaIU-$DOWNLOAD_IDEA_VERSION.tar.gz
+tar -xf ideaIU-$DOWNLOAD_IDEA_VERSION.tar.gz
+rm ideaIU-$DOWNLOAD_IDEA_VERSION.tar.gz
 mv idea-IU-* idea-IU
 
 wget https://gitlab.com/GrantMoyer/lssecret/-/archive/master/lssecret-master.tar.gz
@@ -39,5 +40,5 @@ sudo make -C lssecret-master install
 #printf "89c7c84b-a4ce-4904-8ad8-5d404472c218@$GIT_TOKEN" | secret-tool store --label="IntelliJ Platform GitHub — 89c7c84b-a4ce-4904-8ad8-5d404472c218" account 89c7c84b-a4ce-4904-8ad8-5d404472c218 service 'IntelliJ Platform GitHub — 89c7c84b-a4ce-4904-8ad8-5d404472c218' xdg:schema com.intellij.credentialStore.Credential
 
 git clone $1 GIT_IDEA_SETTINGS
-sudo mv ~/GIT_IDEA_SETTINGS/ ~/.IntelliJIdea2019.2
-sudo chmod -R ugo+rwx .IntelliJIdea2019.2
+sudo mv ~/GIT_IDEA_SETTINGS/ ~/.IntelliJIdea$IDEA_VERSION
+sudo chmod -R ugo+rwx .IntelliJIdea$IDEA_VERSION

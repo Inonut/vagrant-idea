@@ -1,4 +1,4 @@
-cd .IntelliJIdea2019.2
+cd .IntelliJIdea*/
 
 git pull
 
