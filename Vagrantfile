@@ -1,11 +1,15 @@
 $run_script = <<SCRIPT
   export DISPLAY=#{ENV['VAGRANT_DISPLAY']}
-  ~/idea.sh
+  ~/idea.sh #{ENV['VAGRANT_GIT_IDEA_SETTINGS_REPO']}
 SCRIPT
 
 $install_script = <<SCRIPT
   chmod -R ugo+rwx /tmp/custom-config
-  /tmp/custom-config/install.sh #{ENV['VAGRANT_GIT_IDEA_SETTINGS_REPO']}
+  /tmp/custom-config/install.sh
+SCRIPT
+
+$install_tools_script = <<SCRIPT
+  /tmp/custom-config/install_tools.sh
 SCRIPT
 
 Vagrant.configure(2) do |config|
@@ -23,6 +27,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "file", source: "config", destination: "/tmp/custom-config"
   config.vm.provision "shell", inline: $install_script, privileged: false
+  config.vm.provision "shell", inline: $install_tools_script, privileged: false
 
   config.vm.provision "shell", inline: $run_script, privileged: false, run: 'always'
 
